@@ -98,7 +98,7 @@ def load_clip_model():
     try:
         device = "cuda" if torch.cuda.is_available() else "cpu"
         # Use ViT-B/16 for higher resolution and better accuracy
-        # model, preprocess = clip.load("ViT-B/16", device=device)
+        model, preprocess = clip.load("ViT-B/16", device=device)
         return model, preprocess, device
     except Exception as e:
         st.error(f"Failed to load CLIP model: {str(e)}")
@@ -1432,5 +1432,6 @@ with tabs[6]:
                             st.write(f"... and {len(issues) - 10} more")
                     else:
                         st.success("✅ Database integrity check passed!")
+
 
 
